@@ -1,18 +1,21 @@
-package chapter2.task2;
+package chapter_b.task2;
 
 import java.util.Objects;
 
 public class Equation {
 
-    private static Double a;
-    private static Double b;
-    private static Double c;
+    private final Double a;
+    private final Double b;
+    private final Double c;
     private Double delta;
     private Double x1;
     private Double x2;
     private int numberOfSolutions;
 
-    private Equation() {
+    private Equation(Builder builder) {
+        this.a = builder.a;
+        this.b = builder.b;
+        this.c = builder.c;
         Objects.requireNonNull(a);
         Objects.requireNonNull(b);
         Objects.requireNonNull(c);
@@ -50,25 +53,28 @@ public class Equation {
 
     public static class Builder {
 
+        private Double a;
+        private Double b;
+        private Double c;
+
         public Builder a(Double value) {
-            a = value;
+            this.a = value;
             return this;
         }
 
         public Builder b(Double value) {
-            b = value;
+            this.b = value;
             return this;
         }
 
         public Builder c(Double value) {
-            c = value;
+            this.c = value;
             return this;
         }
 
         public Equation build() {
-            return new Equation();
+            return new Equation(this);
         }
-
     }
 
 }

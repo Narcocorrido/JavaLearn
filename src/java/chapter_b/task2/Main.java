@@ -1,4 +1,4 @@
-package chapter2.task2;
+package chapter_b.task2;
 
 import java.util.Scanner;
 
@@ -38,7 +38,7 @@ public class Main {
         try {
             return Double.valueOf(line);
         } catch (NumberFormatException e) {
-            System.out.println("Oczekiwana jest liczba dodatnia!");
+            System.out.println("Oczekiwana jest liczba!");
             return getVariable(paramName);
         }
     }

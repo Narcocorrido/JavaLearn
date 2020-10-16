@@ -1,4 +1,4 @@
-package chapter1.task2;
+package chapter_a.task2;
 
 public class Main {
     /**

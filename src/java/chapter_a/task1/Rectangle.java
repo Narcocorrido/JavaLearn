@@ -1,4 +1,4 @@
-package chapter1.task1;
+package chapter_a.task1;
 
 public class Rectangle {
     Double a, b;

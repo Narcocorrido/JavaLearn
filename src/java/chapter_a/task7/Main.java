@@ -1,4 +1,4 @@
-package chapter1.task7;
+package chapter_a.task7;
 
 import java.util.Scanner;
 

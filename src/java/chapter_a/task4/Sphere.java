@@ -1,4 +1,4 @@
-package chapter1.task4;
+package chapter_a.task4;
 
 public class Sphere {
 
