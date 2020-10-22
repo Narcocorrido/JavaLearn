@@ -12,5 +12,4 @@ public class RandomNumberGenerator {
                 .boxed()
                 .collect(Collectors.toList());
     }
-
 }
