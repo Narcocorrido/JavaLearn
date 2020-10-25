@@ -7,15 +7,19 @@ import chapter.c.task.f.NumberOperation;
 
 public class NumberOperationFor implements NumberOperation {
 
+    private final List<Integer> scope;
     private int min;
     private int max;
     private double average;
-    private final List<Integer> scope;
 
     private NumberOperationFor(Builder builder) {
         Objects.requireNonNull(builder.scope);
         scope = builder.scope;
         calculateParams(scope);
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     private void calculateParams(List<Integer> scope) {
@@ -38,10 +42,6 @@ public class NumberOperationFor implements NumberOperation {
         this.average = (double) sum / (double) scope.size();
         this.min = currentMin;
         this.max = currentMax;
-    }
-
-    public static Builder builder() {
-        return new Builder();
     }
 
     @Override

@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     /**
-     * Program który oblicza pole prostokąta.
-     * Wartości boków a i b wprowadzamy z klawiatury.
-     * W programie należy przyjąć, że zmienn a, b oraz pole są typu double (rzeczywistego)
+     * Program który oblicza pole prostokąta. Wartości boków a i b wprowadzamy z klawiatury.
+     * W programie należy przyjąć, że zmienna a, b oraz pole są typu double (rzeczywistego)
      **/
     public static void main(String[] args) {
         System.out.println("Program oblicza pole prostokąta.");

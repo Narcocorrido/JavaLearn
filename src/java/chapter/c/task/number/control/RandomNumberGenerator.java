@@ -1,4 +1,4 @@
-package chapter.c.number.control;
+package chapter.c.task.number.control;
 
 import java.util.List;
 import java.util.Random;

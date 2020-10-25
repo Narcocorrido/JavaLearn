@@ -5,11 +5,11 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import chapter.c.number.control.RandomNumberGenerator;
 import chapter.c.task.f.do_while.NumberOperationDoWhile;
 import chapter.c.task.f.for_.NumberOperationFor;
 import chapter.c.task.f.stream.NumberOperationStream;
 import chapter.c.task.f.while_.NumberOperationWhile;
+import chapter.c.task.number.control.RandomNumberGenerator;
 
 public class NumberOperationTest {
 

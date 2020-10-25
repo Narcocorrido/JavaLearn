@@ -2,7 +2,7 @@ package chapter.c.task.f.for_;
 
 import java.util.List;
 
-import chapter.c.number.control.RandomNumberGenerator;
+import chapter.c.task.number.control.RandomNumberGenerator;
 
 public class Main {
     /**

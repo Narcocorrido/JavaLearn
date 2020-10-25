@@ -33,6 +33,10 @@ public class Equation {
         }
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public String solution() {
         String equationFormatted = String.format("Trojmian %.2fx^2 + %.2fx + %.2f = 0 ", a, b, c);
         switch (numberOfSolutions) {
@@ -45,10 +49,6 @@ public class Equation {
             default:
                 throw new AssertionError();
         }
-    }
-
-    public static Builder builder() {
-        return new Builder();
     }
 
     public static class Builder {
