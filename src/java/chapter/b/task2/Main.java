@@ -10,7 +10,6 @@ public class Main {
      * do dwóch miejsc po przecinku.
      */
     public static void main(String[] args) {
-
         System.out.printf("Program oblicza pierwiastki rownania ax^2 + bx + c = 0.%n");
 
         Equation equation = Equation.builder()

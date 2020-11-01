@@ -1,25 +1,25 @@
-package chapter.b.task2;
+package chapter.e.task2;
 
 import java.util.Objects;
+import java.util.Scanner;
 
-public class Equation {
+public class QuadraticEquation {
 
     private final Double a;
     private final Double b;
     private final Double c;
-    private Double delta;
     private Double x1;
     private Double x2;
-    private int numberOfSolutions;
+    private final int numberOfSolutions;
 
-    private Equation(Builder builder) {
+    private QuadraticEquation(Builder builder) {
         this.a = builder.a;
         this.b = builder.b;
         this.c = builder.c;
         Objects.requireNonNull(a);
         Objects.requireNonNull(b);
         Objects.requireNonNull(c);
-        delta = Math.pow(b, 2) - (4 * a * c);
+        double delta = Math.pow(b, 2) - (4 * a * c);
 
         if (delta > 0) {
             x1 = (-b - Math.sqrt(delta)) / (2 * a);
@@ -35,6 +35,10 @@ public class Equation {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    public void printResult() {
+        System.out.println(solution());
     }
 
     public String solution() {
@@ -57,23 +61,37 @@ public class Equation {
         private Double b;
         private Double c;
 
-        public Builder a(Double value) {
-            this.a = value;
+        public Builder readData() {
+
+            this.a = getNonNullVariable("a");
+            this.b = getVariable("b");
+            this.c = getVariable("c");
             return this;
         }
 
-        public Builder b(Double value) {
-            this.b = value;
-            return this;
+        public QuadraticEquation build() {
+            return new QuadraticEquation(this);
         }
 
-        public Builder c(Double value) {
-            this.c = value;
-            return this;
+        private Double getNonNullVariable(String paramName) {
+            Double paramValue = getVariable(paramName);
+            if (paramValue == 0) {
+                System.out.printf("%s musi byc rozne od zera%n", paramName);
+                return getNonNullVariable(paramName);
+            }
+            return paramValue;
         }
 
-        public Equation build() {
-            return new Equation(this);
+        private Double getVariable(String paramName) {
+            System.out.printf("Podaj %s. %n", paramName);
+            Scanner scanner = new Scanner(System.in);
+            String line = scanner.nextLine();
+            try {
+                return Double.valueOf(line);
+            } catch (NumberFormatException e) {
+                System.out.println("Oczekiwana jest liczba!");
+                return getVariable(paramName);
+            }
         }
     }
 }
