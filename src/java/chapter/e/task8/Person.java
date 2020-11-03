@@ -21,7 +21,6 @@ public class Person {
         System.out.println("street: " + street);
         System.out.println("postcode: " + postcode);
         System.out.println("city: " + city);
-
     }
 
     protected void initialize() {
