@@ -1,9 +1,9 @@
 package chapter.g.thread.task9;
 
 public class MyThread implements Runnable {
+    private final Thread thread;
     private volatile boolean pause = false;
     private volatile boolean stop = false;
-    private Thread thread;
 
     public MyThread() {
         thread = new Thread(this);
@@ -20,6 +20,7 @@ public class MyThread implements Runnable {
                         wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
+                        Thread.currentThread().interrupt();
                     }
                 }
 
@@ -37,13 +38,13 @@ public class MyThread implements Runnable {
 
     public synchronized void wake() {
         this.pause = false;
-        notify();
+        notifyAll();
     }
 
     public synchronized void stop() {
         this.stop = true;
         this.pause = false;
-        notify();
+        notifyAll();
     }
 
     public void join() throws InterruptedException {

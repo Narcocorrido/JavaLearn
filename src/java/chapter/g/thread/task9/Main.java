@@ -5,7 +5,6 @@ public class Main {
      * Program, który korzystając z własnych metod, zarządza wątkami, tzn. zawiesza, wznawia oraz je zatrzymuje.
      */
     public static void main(String[] args) throws InterruptedException {
-
         MyThread myThread = new MyThread();
         Thread.sleep(1000);
 
