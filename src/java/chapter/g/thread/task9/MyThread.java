@@ -14,8 +14,8 @@ public class MyThread implements Runnable {
     public void run() {
         for (int i = 1; i <= 1000; i++) {
             printNumber(i);
-            synchronized (this) {
-                if (pause) {
+            if (pause) {
+                synchronized (this) {
                     try {
                         wait();
                     } catch (InterruptedException e) {
@@ -23,10 +23,10 @@ public class MyThread implements Runnable {
                         Thread.currentThread().interrupt();
                     }
                 }
+            }
 
-                if (stop) {
-                    break;
-                }
+            if (stop) {
+                break;
             }
 
         }
