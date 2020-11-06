@@ -8,10 +8,15 @@ public class Main {
         PriorityRunnable lowPriority = new PriorityRunnable("Niski priorytet", Thread.NORM_PRIORITY + 1);
         PriorityRunnable highPriority = new PriorityRunnable("Wysoki priorytet", Thread.NORM_PRIORITY + 4);
 
+        Thread.sleep(300);
+
+        highPriority.setStop();
+        lowPriority.setStop();
+
         highPriority.join();
         lowPriority.join();
 
-        System.out.printf("Wysoki priorytet trwał %d milisekund %n", highPriority.getTimeSpend());
-        System.out.printf("Niski priorytet trwał %d milisekund %n", lowPriority.getTimeSpend());
+        System.out.printf("Wysoki priorytet doliczył do %d %n", highPriority.getCounter());
+        System.out.printf("Niski priorytet doliczył do %d %n", lowPriority.getCounter());
     }
 }
