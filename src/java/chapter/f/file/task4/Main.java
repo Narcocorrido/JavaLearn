@@ -1,4 +1,4 @@
-package chapter.f.task4;
+package chapter.f.file.task4;
 
 import java.io.IOException;
 

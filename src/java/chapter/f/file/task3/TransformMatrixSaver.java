@@ -1,4 +1,4 @@
-package chapter.f.task2;
+package chapter.f.file.task3;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,13 +7,31 @@ import java.io.IOException;
 
 import chapter.d.table.b.twodimensional.TwoDimensionalTable;
 
-public class MatrixSaver {
+public class TransformMatrixSaver {
     private static final String FILE_NAME = "data.txt";
     private static final int TABLE_SIZE = 10;
 
-    public MatrixSaver() throws IOException {
+    public TransformMatrixSaver() throws IOException {
         int[][] matrix = getMatrix();
-        saveMatrix(matrix);
+        int[][] transformed = transformMatrix(matrix);
+        saveMatrix(transformed);
+    }
+
+    private int[][] transformMatrix(int[][] matrix) {
+        int[][] matrixB = new int[10][10];
+        int lengthCol = matrixB.length;
+        int lengthRow = matrixB[0].length;
+
+        for (int i = 0; i < lengthCol; i++) {
+            for (int j = 0; j < lengthRow; j++) {
+                matrixB[i][j] = matrix[j][i];
+            }
+        }
+
+        System.out.println("Przekształcona tablica:");
+        TwoDimensionalTable.printTable(matrixB);
+        System.out.println();
+        return matrixB;
     }
 
     public int[][] readFile() throws IOException {
@@ -37,20 +55,21 @@ public class MatrixSaver {
 
     private int[][] getMatrix() {
         System.out.printf("Tworzymy tablicę %dx%d%n", TABLE_SIZE, TABLE_SIZE);
-        int[][] table = new int[TABLE_SIZE][TABLE_SIZE];
-        int lengthCol = table.length;
-        int lengthRow = table[0].length;
+        int[][] matrix = new int[TABLE_SIZE][TABLE_SIZE];
+        int lengthCol = matrix.length;
+        int lengthRow = matrix[0].length;
+
         for (int i = 0; i < lengthCol; i++) {
             for (int j = 0; j < lengthRow; j++) {
-                if (i == j) {
-                    table[i][j] = 1;
+                if(i ==1){
+                    matrix[i][j] = 1;
                 }
             }
         }
 
-        TwoDimensionalTable.printTable(table);
+        TwoDimensionalTable.printTable(matrix);
         System.out.println();
-        return table;
+        return matrix;
     }
 
     private void saveMatrix(int[][] matrix) throws IOException {

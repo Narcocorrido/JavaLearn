@@ -1,4 +1,4 @@
-package chapter.f.task1;
+package chapter.f.file.task1;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
